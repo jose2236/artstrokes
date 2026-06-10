@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "artstrokes-preview",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "public", "-p", "4200", "--no-clipboard"],
-      "port": 4200
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
     }
   ]
 }

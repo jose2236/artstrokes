@@ -1,0 +1,53 @@
+# .claudeignore — Claude no leerá estos archivos para ahorrar contexto
+
+# Dependencias
+node_modules/
+
+# Control de versiones
+.git/
+
+# Lock files
+package-lock.json
+yarn.lock
+
+# Build / deploy
+.vercel/
+dist/
+build/
+
+# Imágenes y media en public/
+public/img/
+public/images/
+public/photos/
+public/videos/
+public/fonts/
+*.webp
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.webm
+*.woff
+*.woff2
+*.ttf
+*.otf
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs y env
+*.log
+logs/
+.env
+.env.*
+
+# Archivos de preview generados
+public/preview-new-layout.html
+public/preview-selector.html
+
+# SVG inline (pesados si son muchos)
+*.svg
