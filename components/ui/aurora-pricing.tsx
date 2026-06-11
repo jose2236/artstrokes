@@ -78,8 +78,9 @@ export default function AuroraPricing() {
       style={{
         position: 'relative',
         overflow: 'hidden',
-        background: 'var(--fg)',
-        borderBottom: '2px solid var(--fg)',
+        background: 'var(--bg)',
+        borderTop: '1px solid rgba(28,28,30,0.07)',
+        borderBottom: '1px solid rgba(28,28,30,0.07)',
       }}
     >
       {/* Aurora blobs */}
@@ -95,7 +96,7 @@ export default function AuroraPricing() {
         }
         .aurora-blob {
           position: absolute; border-radius: 50%;
-          filter: blur(100px); opacity: .13;
+          filter: blur(120px); opacity: .18;
         }
         .aurora-blob-1 {
           width: 640px; height: 640px;
@@ -117,7 +118,7 @@ export default function AuroraPricing() {
           from { transform: translate(0,0) scale(1); }
           to   { transform: translate(-90px,-70px) scale(1.18); }
         }
-        .aurora-card-hover:hover { background: rgba(255,255,255,0.04) !important; }
+        .aurora-card-hover:hover { background: rgba(28,28,30,0.025) !important; }
       `}</style>
 
       <div className="s-wrap" style={{ position: 'relative', zIndex: 1 }}>
@@ -158,8 +159,9 @@ export default function AuroraPricing() {
                 padding: '40px 32px',
                 display: 'flex',
                 flexDirection: 'column',
-                background: plan.featured ? 'rgba(255,255,255,0.05)' : 'transparent',
-                borderRight: i < 2 ? '1px solid rgba(255,255,255,0.07)' : 'none',
+                background: plan.featured ? 'rgba(212,240,0,0.05)' : 'transparent',
+                borderRight: i < 2 ? '1px solid rgba(28,28,30,0.07)' : 'none',
+                borderTop: plan.featured ? '2px solid var(--acid)' : '2px solid transparent',
                 transition: 'background 0.3s ease',
                 overflow: 'hidden',
               }}
@@ -168,8 +170,8 @@ export default function AuroraPricing() {
               {plan.featured && (
                 <span style={{
                   position: 'absolute', top: 0, right: 0,
-                  background: 'var(--acid)',
-                  color: 'var(--fg)',
+                  background: 'var(--fg)',
+                  color: 'var(--bg)',
                   fontFamily: 'var(--f-mono)',
                   fontSize: 8, fontWeight: 700,
                   letterSpacing: '.18em',
@@ -189,8 +191,8 @@ export default function AuroraPricing() {
                 marginBottom: 20,
                 padding: '4px 10px',
                 background: plan.featured ? 'rgba(212,240,0,0.1)' : 'transparent',
-                border: `1px solid ${plan.featured ? 'rgba(212,240,0,0.25)' : 'rgba(255,255,255,0.1)'}`,
-                color: plan.featured ? 'var(--acid)' : 'rgba(255,255,255,0.3)',
+                border: `1px solid ${plan.featured ? 'rgba(28,28,30,0.18)' : 'rgba(28,28,30,0.1)'}`,
+                color: plan.featured ? 'var(--fg)' : 'rgba(28,28,30,0.35)',
                 fontWeight: plan.featured ? 600 : 400,
               }}>
                 {plan.tag}
@@ -200,7 +202,7 @@ export default function AuroraPricing() {
               <div style={{
                 fontFamily: 'var(--f-display)',
                 fontSize: 18, fontWeight: 600,
-                color: plan.featured ? 'white' : 'rgba(255,255,255,0.8)',
+                color: 'var(--fg)',
                 marginBottom: 20, lineHeight: 1.25,
               }}>
                 {plan.name}
@@ -211,7 +213,7 @@ export default function AuroraPricing() {
                 fontFamily: 'var(--f-display)',
                 fontSize: 52, fontWeight: 700,
                 letterSpacing: '-.04em', lineHeight: 1,
-                color: plan.featured ? 'var(--acid)' : 'white',
+                color: 'var(--fg)',
                 marginBottom: 6,
               }}>
                 {plan.price}
@@ -222,7 +224,7 @@ export default function AuroraPricing() {
                 fontFamily: 'var(--f-mono)',
                 fontSize: 8.5, letterSpacing: '.14em',
                 textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.24)',
+                color: 'rgba(28,28,30,0.35)',
                 marginBottom: 28,
               }}>
                 {plan.period}
@@ -232,8 +234,8 @@ export default function AuroraPricing() {
               <div style={{
                 height: 1,
                 background: plan.featured
-                  ? 'rgba(212,240,0,0.12)'
-                  : 'rgba(255,255,255,0.06)',
+                  ? 'rgba(28,28,30,0.1)'
+                  : 'rgba(28,28,30,0.06)',
                 marginBottom: 28,
               }} />
 
@@ -250,8 +252,8 @@ export default function AuroraPricing() {
                       fontFamily: 'var(--f-body)',
                       fontSize: 13, lineHeight: 1.4,
                       color: si
-                        ? 'rgba(255,255,255,0.58)'
-                        : 'rgba(255,255,255,0.2)',
+                        ? 'rgba(28,28,30,0.7)'
+                        : 'rgba(28,28,30,0.28)',
                     }}
                   >
                     {si
@@ -259,14 +261,14 @@ export default function AuroraPricing() {
                           size={13}
                           strokeWidth={2.5}
                           style={{
-                            color: plan.featured ? 'var(--acid)' : 'rgba(255,255,255,0.35)',
+                            color: plan.featured ? 'var(--fg)' : 'rgba(28,28,30,0.4)',
                             flexShrink: 0, marginTop: 2,
                           }}
                         />
                       : <X
                           size={13}
                           strokeWidth={2}
-                          style={{ color: 'rgba(255,255,255,0.15)', flexShrink: 0, marginTop: 2 }}
+                          style={{ color: 'rgba(28,28,30,0.2)', flexShrink: 0, marginTop: 2 }}
                         />
                     }
                     {text}
@@ -287,22 +289,22 @@ export default function AuroraPricing() {
                   padding: '14px 24px',
                   textDecoration: 'none',
                   background: plan.featured ? 'var(--acid)' : 'transparent',
-                  color: plan.featured ? 'var(--fg)' : 'rgba(255,255,255,0.6)',
+                  color: plan.featured ? 'var(--fg)' : 'rgba(28,28,30,0.55)',
                   border: plan.featured
                     ? '2px solid var(--acid)'
-                    : '1px solid rgba(255,255,255,0.15)',
+                    : '1px solid rgba(28,28,30,0.18)',
                   transition: 'all 0.22s ease',
                 }}
                 onMouseEnter={e => {
                   if (!plan.featured) {
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--acid)'
-                    ;(e.currentTarget as HTMLAnchorElement).style.color = 'var(--acid)'
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--fg)'
+                    ;(e.currentTarget as HTMLAnchorElement).style.color = 'var(--fg)'
                   }
                 }}
                 onMouseLeave={e => {
                   if (!plan.featured) {
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.15)'
-                    ;(e.currentTarget as HTMLAnchorElement).style.color = 'rgba(255,255,255,0.6)'
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(28,28,30,0.18)'
+                    ;(e.currentTarget as HTMLAnchorElement).style.color = 'rgba(28,28,30,0.55)'
                   }
                 }}
               >
@@ -318,12 +320,12 @@ export default function AuroraPricing() {
         .aurora-precios-grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
-          border: 1px solid rgba(255,255,255,0.07);
+          border: 1px solid rgba(28,28,30,0.07);
           margin-top: 0;
         }
         @media (max-width: 1024px) {
           .aurora-precios-grid { grid-template-columns: 1fr; }
-          .aurora-precios-grid > div { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07); }
+          .aurora-precios-grid > div { border-right: none !important; border-bottom: 1px solid rgba(28,28,30,0.07); }
           .aurora-precios-grid > div:last-child { border-bottom: none; }
         }
       `}</style>
