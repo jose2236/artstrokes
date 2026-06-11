@@ -94,7 +94,7 @@ export default function AuroraPricing() {
         }
         .aurora-blob {
           position: absolute; border-radius: 50%;
-          filter: blur(120px); opacity: .22;
+          filter: blur(120px); opacity: 0;
         }
         .aurora-blob-1 {
           width: 600px; height: 600px;
@@ -116,10 +116,8 @@ export default function AuroraPricing() {
           from { transform: translate(0,0) scale(1); }
           to   { transform: translate(-80px,-60px) scale(1.18); }
         }
-        .aurora-card-hover { transition: background 0.28s ease, color 0.28s ease; }
-        .aurora-card-hover:hover { background: #AB0E67 !important; }
-        .aurora-card-hover:hover * { color: white !important; border-color: rgba(255,255,255,0.2) !important; }
-        .aurora-card-hover:hover hr, .aurora-card-hover:hover [data-divider] { background: rgba(255,255,255,0.15) !important; }
+        .aurora-cta-btn { transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease; }
+        .aurora-cta-btn:hover { background: white !important; color: #AB0E67 !important; border-color: #AB0E67 !important; }
         .aurora-precios-grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -170,7 +168,7 @@ export default function AuroraPricing() {
                 flexDirection: 'column',
                 background: plan.featured ? 'rgba(28,28,30,0.08)' : 'transparent',
                 borderRight: i < 2 ? '1px solid rgba(28,28,30,0.12)' : 'none',
-                borderTop: plan.featured ? '2px solid rgba(28,28,30,0.6)' : '2px solid transparent',
+                borderTop: '2px solid transparent',
                 transition: 'background 0.3s ease',
                 overflow: 'hidden',
               }}
@@ -285,6 +283,7 @@ export default function AuroraPricing() {
                 href={WA}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="aurora-cta-btn"
                 style={{
                   display: 'block', textAlign: 'center',
                   fontFamily: 'var(--f-display)',
@@ -292,24 +291,9 @@ export default function AuroraPricing() {
                   letterSpacing: '.1em', textTransform: 'uppercase',
                   padding: '14px 24px',
                   textDecoration: 'none',
-                  background: plan.featured ? 'var(--fg)' : 'transparent',
-                  color: plan.featured ? 'var(--acid)' : 'rgba(28,28,30,0.55)',
-                  border: plan.featured
-                    ? '2px solid var(--fg)'
-                    : '1px solid rgba(28,28,30,0.2)',
-                  transition: 'all 0.22s ease',
-                }}
-                onMouseEnter={e => {
-                  if (!plan.featured) {
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--fg)'
-                    ;(e.currentTarget as HTMLAnchorElement).style.color = 'var(--fg)'
-                  }
-                }}
-                onMouseLeave={e => {
-                  if (!plan.featured) {
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(28,28,30,0.2)'
-                    ;(e.currentTarget as HTMLAnchorElement).style.color = 'rgba(28,28,30,0.55)'
-                  }
+                  background: plan.featured ? '#AB0E67' : 'transparent',
+                  color: plan.featured ? 'white' : 'rgba(28,28,30,0.55)',
+                  border: `1px solid ${plan.featured ? '#AB0E67' : 'rgba(28,28,30,0.2)'}`,
                 }}
               >
                 {plan.cta}
