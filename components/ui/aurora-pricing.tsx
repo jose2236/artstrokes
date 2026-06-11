@@ -78,7 +78,7 @@ export default function AuroraPricing() {
       style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#d4f000',
+        background: '#ffffff',
       }}
     >
       {/* Aurora blobs — familia violeta/magenta únicamente */}
@@ -98,13 +98,13 @@ export default function AuroraPricing() {
         }
         .aurora-blob-1 {
           width: 600px; height: 600px;
-          background: #1c1c1e;
+          background: #AB0E67;
           top: -10%; left: -6%;
           animation: auroraBlob1 24s infinite alternate ease-in-out;
         }
         .aurora-blob-2 {
           width: 500px; height: 500px;
-          background: #1c1c1e;
+          background: #AB0E67;
           bottom: -10%; right: -5%;
           animation: auroraBlob2 30s infinite alternate ease-in-out;
         }
