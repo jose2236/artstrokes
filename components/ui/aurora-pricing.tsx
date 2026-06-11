@@ -78,12 +78,10 @@ export default function AuroraPricing() {
       style={{
         position: 'relative',
         overflow: 'hidden',
-        background: 'var(--bg)',
-        borderTop: '1px solid rgba(28,28,30,0.07)',
-        borderBottom: '1px solid rgba(28,28,30,0.07)',
+        background: '#1a0530',
       }}
     >
-      {/* Aurora blobs */}
+      {/* Aurora blobs — familia violeta/magenta únicamente */}
       <div aria-hidden className="aurora-pricing-bg">
         <div className="aurora-blob aurora-blob-1" />
         <div className="aurora-blob aurora-blob-2" />
@@ -96,49 +94,57 @@ export default function AuroraPricing() {
         }
         .aurora-blob {
           position: absolute; border-radius: 50%;
-          filter: blur(120px); opacity: .18;
+          filter: blur(120px); opacity: .22;
         }
         .aurora-blob-1 {
-          width: 640px; height: 640px;
-          background: #d4f000;
-          top: -15%; left: -8%;
+          width: 600px; height: 600px;
+          background: #7c3aed;
+          top: -10%; left: -6%;
           animation: auroraBlob1 24s infinite alternate ease-in-out;
         }
         .aurora-blob-2 {
-          width: 520px; height: 520px;
+          width: 500px; height: 500px;
           background: #AB0E67;
-          bottom: -12%; right: -6%;
+          bottom: -10%; right: -5%;
           animation: auroraBlob2 30s infinite alternate ease-in-out;
         }
         @keyframes auroraBlob1 {
           from { transform: translate(0,0) scale(1); }
-          to   { transform: translate(90px,70px) scale(1.22); }
+          to   { transform: translate(80px,60px) scale(1.2); }
         }
         @keyframes auroraBlob2 {
           from { transform: translate(0,0) scale(1); }
-          to   { transform: translate(-90px,-70px) scale(1.18); }
+          to   { transform: translate(-80px,-60px) scale(1.18); }
         }
-        .aurora-card-hover:hover { background: rgba(28,28,30,0.025) !important; }
+        .aurora-card-hover:hover { background: rgba(255,255,255,0.05) !important; }
+        .aurora-precios-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          border: 1px solid rgba(255,255,255,0.08);
+          margin-top: 0;
+        }
+        @media (max-width: 1024px) {
+          .aurora-precios-grid { grid-template-columns: 1fr; }
+          .aurora-precios-grid > div { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); }
+          .aurora-precios-grid > div:last-child { border-bottom: none; }
+        }
       `}</style>
 
       <div className="s-wrap" style={{ position: 'relative', zIndex: 1 }}>
 
-        {/* Encabezado de sección */}
+        {/* Encabezado */}
         <motion.div
           initial={{ opacity: 0, y: -18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div
-            className="s-eyebrow"
-            style={{ color: 'var(--acid)' }}
-          >
+          <div className="s-eyebrow" style={{ color: 'rgba(255,255,255,0.45)' }}>
             Inversión
           </div>
-          <h2 className="s-h2 s-h2-light">
+          <h2 className="s-h2" style={{ color: 'white' }}>
             Sin letras<br />
-            <span className="red">chiquitas.</span>
+            <span style={{ color: 'white' }}>chiquitas.</span>
           </h2>
         </motion.div>
 
@@ -151,7 +157,7 @@ export default function AuroraPricing() {
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
-              whileHover={{ y: -8, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] } }}
+              whileHover={{ y: -6, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] } }}
               viewport={{ once: true }}
               className="aurora-card-hover"
               style={{
@@ -159,9 +165,9 @@ export default function AuroraPricing() {
                 padding: '40px 32px',
                 display: 'flex',
                 flexDirection: 'column',
-                background: plan.featured ? 'rgba(212,240,0,0.05)' : 'transparent',
-                borderRight: i < 2 ? '1px solid rgba(28,28,30,0.07)' : 'none',
-                borderTop: plan.featured ? '2px solid var(--acid)' : '2px solid transparent',
+                background: plan.featured ? 'rgba(255,255,255,0.07)' : 'transparent',
+                borderRight: i < 2 ? '1px solid rgba(255,255,255,0.08)' : 'none',
+                borderTop: plan.featured ? '2px solid rgba(255,255,255,0.5)' : '2px solid transparent',
                 transition: 'background 0.3s ease',
                 overflow: 'hidden',
               }}
@@ -170,8 +176,8 @@ export default function AuroraPricing() {
               {plan.featured && (
                 <span style={{
                   position: 'absolute', top: 0, right: 0,
-                  background: 'var(--fg)',
-                  color: 'var(--bg)',
+                  background: 'white',
+                  color: '#1a0530',
                   fontFamily: 'var(--f-mono)',
                   fontSize: 8, fontWeight: 700,
                   letterSpacing: '.18em',
@@ -190,9 +196,9 @@ export default function AuroraPricing() {
                 textTransform: 'uppercase',
                 marginBottom: 20,
                 padding: '4px 10px',
-                background: plan.featured ? 'rgba(212,240,0,0.1)' : 'transparent',
-                border: `1px solid ${plan.featured ? 'rgba(28,28,30,0.18)' : 'rgba(28,28,30,0.1)'}`,
-                color: plan.featured ? 'var(--fg)' : 'rgba(28,28,30,0.35)',
+                background: 'transparent',
+                border: `1px solid ${plan.featured ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.12)'}`,
+                color: plan.featured ? 'white' : 'rgba(255,255,255,0.35)',
                 fontWeight: plan.featured ? 600 : 400,
               }}>
                 {plan.tag}
@@ -202,7 +208,7 @@ export default function AuroraPricing() {
               <div style={{
                 fontFamily: 'var(--f-display)',
                 fontSize: 18, fontWeight: 600,
-                color: 'var(--fg)',
+                color: 'white',
                 marginBottom: 20, lineHeight: 1.25,
               }}>
                 {plan.name}
@@ -213,7 +219,7 @@ export default function AuroraPricing() {
                 fontFamily: 'var(--f-display)',
                 fontSize: 52, fontWeight: 700,
                 letterSpacing: '-.04em', lineHeight: 1,
-                color: 'var(--fg)',
+                color: 'white',
                 marginBottom: 6,
               }}>
                 {plan.price}
@@ -224,7 +230,7 @@ export default function AuroraPricing() {
                 fontFamily: 'var(--f-mono)',
                 fontSize: 8.5, letterSpacing: '.14em',
                 textTransform: 'uppercase',
-                color: 'rgba(28,28,30,0.35)',
+                color: 'rgba(255,255,255,0.28)',
                 marginBottom: 28,
               }}>
                 {plan.period}
@@ -234,8 +240,8 @@ export default function AuroraPricing() {
               <div style={{
                 height: 1,
                 background: plan.featured
-                  ? 'rgba(28,28,30,0.1)'
-                  : 'rgba(28,28,30,0.06)',
+                  ? 'rgba(255,255,255,0.12)'
+                  : 'rgba(255,255,255,0.07)',
                 marginBottom: 28,
               }} />
 
@@ -251,24 +257,19 @@ export default function AuroraPricing() {
                       display: 'flex', alignItems: 'flex-start', gap: 9,
                       fontFamily: 'var(--f-body)',
                       fontSize: 13, lineHeight: 1.4,
-                      color: si
-                        ? 'rgba(28,28,30,0.7)'
-                        : 'rgba(28,28,30,0.28)',
+                      color: si ? 'rgba(255,255,255,0.65)' : 'rgba(255,255,255,0.2)',
                     }}
                   >
                     {si
                       ? <Check
                           size={13}
                           strokeWidth={2.5}
-                          style={{
-                            color: plan.featured ? 'var(--fg)' : 'rgba(28,28,30,0.4)',
-                            flexShrink: 0, marginTop: 2,
-                          }}
+                          style={{ color: 'rgba(255,255,255,0.5)', flexShrink: 0, marginTop: 2 }}
                         />
                       : <X
                           size={13}
                           strokeWidth={2}
-                          style={{ color: 'rgba(28,28,30,0.2)', flexShrink: 0, marginTop: 2 }}
+                          style={{ color: 'rgba(255,255,255,0.15)', flexShrink: 0, marginTop: 2 }}
                         />
                     }
                     {text}
@@ -288,23 +289,23 @@ export default function AuroraPricing() {
                   letterSpacing: '.1em', textTransform: 'uppercase',
                   padding: '14px 24px',
                   textDecoration: 'none',
-                  background: plan.featured ? 'var(--acid)' : 'transparent',
-                  color: plan.featured ? 'var(--fg)' : 'rgba(28,28,30,0.55)',
+                  background: plan.featured ? 'white' : 'transparent',
+                  color: plan.featured ? '#1a0530' : 'rgba(255,255,255,0.55)',
                   border: plan.featured
-                    ? '2px solid var(--acid)'
-                    : '1px solid rgba(28,28,30,0.18)',
+                    ? '2px solid white'
+                    : '1px solid rgba(255,255,255,0.2)',
                   transition: 'all 0.22s ease',
                 }}
                 onMouseEnter={e => {
                   if (!plan.featured) {
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--fg)'
-                    ;(e.currentTarget as HTMLAnchorElement).style.color = 'var(--fg)'
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.6)'
+                    ;(e.currentTarget as HTMLAnchorElement).style.color = 'white'
                   }
                 }}
                 onMouseLeave={e => {
                   if (!plan.featured) {
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(28,28,30,0.18)'
-                    ;(e.currentTarget as HTMLAnchorElement).style.color = 'rgba(28,28,30,0.55)'
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.2)'
+                    ;(e.currentTarget as HTMLAnchorElement).style.color = 'rgba(255,255,255,0.55)'
                   }
                 }}
               >
@@ -315,20 +316,6 @@ export default function AuroraPricing() {
         </div>
 
       </div>
-
-      <style>{`
-        .aurora-precios-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          border: 1px solid rgba(28,28,30,0.07);
-          margin-top: 0;
-        }
-        @media (max-width: 1024px) {
-          .aurora-precios-grid { grid-template-columns: 1fr; }
-          .aurora-precios-grid > div { border-right: none !important; border-bottom: 1px solid rgba(28,28,30,0.07); }
-          .aurora-precios-grid > div:last-child { border-bottom: none; }
-        }
-      `}</style>
     </section>
   )
 }
