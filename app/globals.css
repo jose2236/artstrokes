@@ -152,7 +152,6 @@ nav {
 ══════════════════════════════════════ */
 .hero {
   padding-top: 56px;
-  min-height: 100vh;
   background: var(--fg);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -170,8 +169,8 @@ nav {
 .hero-main {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 64px 72px;
+  justify-content: center;
+  padding: 64px 64px 64px;
   position: relative;
   z-index: 2;
   border-right: 1px solid rgba(255,255,255,0.05);
@@ -1185,7 +1184,7 @@ nav,
   :root { --sp-lg: 96px; --sp-xl: 120px; }
   nav { padding: 0 24px; }
   .hero { grid-template-columns: 1fr; }
-  .hero-main { padding: 80px 40px 56px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .hero-main { padding: 48px 40px 48px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .hero-browser-side { padding: 28px 32px 48px; }
   .hero-scroll { display: none; }
   footer { padding: 44px 40px; }
@@ -1209,7 +1208,7 @@ nav,
   :root { --sp-lg: 72px; --sp-xl: 96px; }
   nav { padding: 0 20px; }
   .nav-links { display: none; }
-  .hero-main { padding: 72px 24px 48px; }
+  .hero-main { padding: 40px 24px 40px; }
   .hero-browser-side { padding: 40px 24px 56px; }
   .hero-h1 { font-size: clamp(60px, 18vw, 88px); }
   .hero-bottom-bar { grid-template-columns: 1fr 1fr; }
