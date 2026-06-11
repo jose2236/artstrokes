@@ -1,14 +1,16 @@
 'use client'
 
 import { useState } from 'react'
+import { UtensilsCrossed, Scissors, Smile, Cake, Hammer, Wrench } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 
-const GIROS = [
-  { id: 'restaurante', icon: '🍽', name: 'Restaurante', tag: 'Gastronomía' },
-  { id: 'barberia',    icon: '✂️', name: 'Barbería',    tag: 'Estética' },
-  { id: 'dentista',   icon: '🦷', name: 'Dentista',    tag: 'Salud' },
-  { id: 'pasteleria', icon: '🎂', name: 'Pastelería',  tag: 'Alimentos' },
-  { id: 'herreria',   icon: '⚒️', name: 'Herrería',    tag: 'Servicios' },
-  { id: 'taller',     icon: '🔧', name: 'Taller Mec.', tag: 'Automotriz' },
+const GIROS: { id: string; Icon: LucideIcon; name: string; tag: string }[] = [
+  { id: 'restaurante', Icon: UtensilsCrossed, name: 'Restaurante', tag: 'Gastronomía' },
+  { id: 'barberia',    Icon: Scissors,        name: 'Barbería',    tag: 'Estética' },
+  { id: 'dentista',   Icon: Smile,           name: 'Dentista',    tag: 'Salud' },
+  { id: 'pasteleria', Icon: Cake,            name: 'Pastelería',  tag: 'Alimentos' },
+  { id: 'herreria',   Icon: Hammer,          name: 'Herrería',    tag: 'Servicios' },
+  { id: 'taller',     Icon: Wrench,          name: 'Taller Mec.', tag: 'Automotriz' },
 ]
 
 export default function SelectorGiro() {
@@ -26,19 +28,31 @@ export default function SelectorGiro() {
 
         <div className="sel-left reveal">
           <div className="giros-grid">
-            {GIROS.map((g) => (
-              <button
-                key={g.id}
-                className={`giro-btn${active === g.id ? ' active' : ''}`}
-                onClick={() => setActive(g.id)}
-              >
-                <span className="giro-icon">{g.icon}</span>
-                <div>
-                  <div className="giro-name">{g.name}</div>
-                  <div className="giro-tag">{g.tag}</div>
-                </div>
-              </button>
-            ))}
+            {GIROS.map((g) => {
+              const isActive = active === g.id
+              return (
+                <button
+                  key={g.id}
+                  className={`giro-btn${isActive ? ' active' : ''}`}
+                  onClick={() => setActive(g.id)}
+                >
+                  <span className="giro-icon">
+                    <g.Icon
+                      size={18}
+                      strokeWidth={1.8}
+                      style={{
+                        color: isActive ? 'var(--acid)' : 'rgba(28,28,30,0.3)',
+                        transition: 'color 0.22s ease',
+                      }}
+                    />
+                  </span>
+                  <div>
+                    <div className="giro-name">{g.name}</div>
+                    <div className="giro-tag">{g.tag}</div>
+                  </div>
+                </button>
+              )
+            })}
           </div>
           <a className="sel-cta" href="#contacto">
             Quiero esta para mi negocio <span className="sel-cta-arrow">→</span>
