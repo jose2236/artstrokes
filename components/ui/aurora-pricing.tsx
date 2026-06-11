@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import { Check, X } from 'lucide-react'
 
 const PLANS = [
@@ -62,12 +62,12 @@ const PLANS = [
 
 const WA = 'https://wa.me/5215530584253?text=Hola,%20quiero%20mi%20página%20web'
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.13 + 0.18, duration: 0.62, ease: 'easeOut' },
+    transition: { delay: i * 0.13 + 0.18, duration: 0.62, ease: [0.16, 1, 0.3, 1] },
   }),
 }
 
@@ -150,7 +150,7 @@ export default function AuroraPricing() {
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
-              whileHover={{ y: -8, transition: { duration: 0.25, ease: 'easeOut' } }}
+              whileHover={{ y: -8, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] } }}
               viewport={{ once: true }}
               className="aurora-card-hover"
               style={{
