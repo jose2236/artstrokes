@@ -41,7 +41,7 @@ export default function SelectorGiro() {
                       size={18}
                       strokeWidth={1.8}
                       style={{
-                        color: isActive ? 'var(--acid)' : 'rgba(28,28,30,0.3)',
+                        color: isActive ? 'white' : 'rgba(28,28,30,0.45)',
                         transition: 'color 0.22s ease',
                       }}
                     />

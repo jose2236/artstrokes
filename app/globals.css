@@ -1274,7 +1274,7 @@ nav,
 }
 .giro-btn::before {
   content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-  width: 3px; background: var(--acid); transform: scaleY(0);
+  width: 3px; background: var(--fg); transform: scaleY(0);
   transform-origin: bottom; transition: transform 0.28s var(--ease);
 }
 .giro-btn:hover { border-color: var(--fg); background: var(--surf); }
@@ -1288,12 +1288,12 @@ nav,
   letter-spacing: -0.01em; text-transform: uppercase;
   color: var(--fg); line-height: 1.1; margin-bottom: 1px; transition: color 0.2s;
 }
-.giro-btn.active .giro-name { color: var(--acid); }
+.giro-btn.active .giro-name { color: white; }
 .giro-tag {
   font-family: var(--f-mono); font-size: 8.5px; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--muted); transition: color 0.2s;
 }
-.giro-btn.active .giro-tag { color: rgba(212,240,0,0.7); }
+.giro-btn.active .giro-tag { color: rgba(255,255,255,0.55); }
 .sel-cta {
   display: inline-flex; align-items: center; gap: 10px;
   background: var(--fg); color: white;
