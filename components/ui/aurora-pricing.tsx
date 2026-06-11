@@ -116,7 +116,10 @@ export default function AuroraPricing() {
           from { transform: translate(0,0) scale(1); }
           to   { transform: translate(-80px,-60px) scale(1.18); }
         }
-        .aurora-card-hover:hover { background: rgba(28,28,30,0.06) !important; }
+        .aurora-card-hover { transition: background 0.28s ease, color 0.28s ease; }
+        .aurora-card-hover:hover { background: #AB0E67 !important; }
+        .aurora-card-hover:hover * { color: white !important; border-color: rgba(255,255,255,0.2) !important; }
+        .aurora-card-hover:hover hr, .aurora-card-hover:hover [data-divider] { background: rgba(255,255,255,0.15) !important; }
         .aurora-precios-grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
