@@ -9,7 +9,6 @@ import NumerosImpacto from '@/components/NumerosImpacto'
 import Galeria from '@/components/Galeria'
 import Proceso from '@/components/Proceso'
 import Precios from '@/components/Precios'
-import Nichos from '@/components/Nichos'
 import Garantias from '@/components/Garantias'
 import CtaFinal from '@/components/CtaFinal'
 import Footer from '@/components/Footer'
@@ -28,7 +27,6 @@ export default function Home() {
       <Galeria />
       <Proceso />
       <Precios />
-      <Nichos />
       <Garantias />
       <CtaFinal />
       <Footer />
