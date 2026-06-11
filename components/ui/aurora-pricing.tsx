@@ -116,8 +116,18 @@ export default function AuroraPricing() {
           from { transform: translate(0,0) scale(1); }
           to   { transform: translate(-80px,-60px) scale(1.18); }
         }
+        .aurora-card-hover { transition: background 0.28s ease; }
+        .aurora-card-hover:hover { background: #AB0E67 !important; }
+        .aurora-card-hover:hover .ap-text-dark { color: white !important; }
+        .aurora-card-hover:hover .ap-text-muted { color: rgba(255,255,255,0.55) !important; }
+        .aurora-card-hover:hover .ap-text-light { color: rgba(0,0,0,0.7) !important; }
+        .aurora-card-hover:hover .ap-border { border-color: rgba(255,255,255,0.2) !important; }
+        .aurora-card-hover:hover .ap-divider { background: rgba(255,255,255,0.18) !important; }
+        .aurora-card-hover:hover .ap-badge { background: white !important; color: #AB0E67 !important; border-color: white !important; }
+        .aurora-card-hover:hover .ap-cta { background: white !important; color: #AB0E67 !important; border-color: white !important; }
+        .aurora-card-hover:hover .ap-cta-featured { background: white !important; color: #AB0E67 !important; border-color: white !important; }
+        .aurora-card-hover:hover .ap-tag { border-color: rgba(255,255,255,0.3) !important; color: rgba(255,255,255,0.6) !important; }
         .aurora-cta-btn { transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease; }
-        .aurora-cta-btn:hover { background: white !important; color: #AB0E67 !important; border-color: #AB0E67 !important; }
         .aurora-precios-grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -175,22 +185,23 @@ export default function AuroraPricing() {
             >
               {/* Badge featured */}
               {plan.featured && (
-                <span style={{
+                <span className="ap-badge" style={{
                   position: 'absolute', top: 0, right: 0,
-                  background: 'var(--fg)',
-                  color: 'var(--acid)',
+                  background: '#AB0E67',
+                  color: 'white',
                   fontFamily: 'var(--f-mono)',
                   fontSize: 8, fontWeight: 700,
                   letterSpacing: '.18em',
                   textTransform: 'uppercase',
                   padding: '5px 14px',
+                  transition: 'background 0.28s ease, color 0.28s ease',
                 }}>
                   Más popular
                 </span>
               )}
 
               {/* Tag */}
-              <span style={{
+              <span className="ap-tag" style={{
                 display: 'inline-block',
                 fontFamily: 'var(--f-mono)',
                 fontSize: 9, letterSpacing: '.16em',
@@ -198,80 +209,76 @@ export default function AuroraPricing() {
                 marginBottom: 20,
                 padding: '4px 10px',
                 background: 'transparent',
-                border: `1px solid ${plan.featured ? 'rgba(28,28,30,0.25)' : 'rgba(28,28,30,0.14)'}`,
-                color: plan.featured ? 'var(--fg)' : 'rgba(28,28,30,0.4)',
-                fontWeight: plan.featured ? 600 : 400,
+                border: `1px solid rgba(28,28,30,0.14)`,
+                color: 'rgba(28,28,30,0.4)',
+                fontWeight: 400,
+                transition: 'border-color 0.28s ease, color 0.28s ease',
               }}>
                 {plan.tag}
               </span>
 
               {/* Nombre */}
-              <div style={{
+              <div className="ap-text-dark" style={{
                 fontFamily: 'var(--f-display)',
                 fontSize: 18, fontWeight: 600,
                 color: 'var(--fg)',
                 marginBottom: 20, lineHeight: 1.25,
+                transition: 'color 0.28s ease',
               }}>
                 {plan.name}
               </div>
 
               {/* Precio */}
-              <div style={{
+              <div className="ap-text-dark" style={{
                 fontFamily: 'var(--f-display)',
                 fontSize: 52, fontWeight: 700,
                 letterSpacing: '-.04em', lineHeight: 1,
                 color: 'var(--fg)',
                 marginBottom: 6,
+                transition: 'color 0.28s ease',
               }}>
                 {plan.price}
               </div>
 
               {/* Período */}
-              <div style={{
+              <div className="ap-text-muted" style={{
                 fontFamily: 'var(--f-mono)',
                 fontSize: 8.5, letterSpacing: '.14em',
                 textTransform: 'uppercase',
                 color: 'rgba(28,28,30,0.4)',
                 marginBottom: 28,
+                transition: 'color 0.28s ease',
               }}>
                 {plan.period}
               </div>
 
               {/* Divider */}
-              <div style={{
+              <div className="ap-divider" style={{
                 height: 1,
-                background: plan.featured
-                  ? 'rgba(28,28,30,0.14)'
-                  : 'rgba(28,28,30,0.08)',
+                background: 'rgba(28,28,30,0.09)',
                 marginBottom: 28,
+                transition: 'background 0.28s ease',
               }} />
 
               {/* Features */}
-              <div style={{
-                display: 'flex', flexDirection: 'column',
-                gap: 11, flex: 1, marginBottom: 36,
-              }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 11, flex: 1, marginBottom: 36 }}>
                 {(plan.features as [boolean, string][]).map(([si, text], fi) => (
                   <div
                     key={fi}
+                    className={si ? 'ap-text-dark' : 'ap-text-muted'}
                     style={{
                       display: 'flex', alignItems: 'flex-start', gap: 9,
                       fontFamily: 'var(--f-body)',
                       fontSize: 13, lineHeight: 1.4,
                       color: si ? 'rgba(28,28,30,0.75)' : 'rgba(28,28,30,0.28)',
+                      transition: 'color 0.28s ease',
                     }}
                   >
                     {si
-                      ? <Check
-                          size={13}
-                          strokeWidth={2.5}
-                          style={{ color: 'rgba(28,28,30,0.45)', flexShrink: 0, marginTop: 2 }}
-                        />
-                      : <X
-                          size={13}
-                          strokeWidth={2}
-                          style={{ color: 'rgba(28,28,30,0.18)', flexShrink: 0, marginTop: 2 }}
-                        />
+                      ? <Check size={13} strokeWidth={2.5} className="ap-text-dark"
+                          style={{ color: 'rgba(28,28,30,0.45)', flexShrink: 0, marginTop: 2, transition: 'color 0.28s ease' }} />
+                      : <X size={13} strokeWidth={2} className="ap-text-muted"
+                          style={{ color: 'rgba(28,28,30,0.18)', flexShrink: 0, marginTop: 2, transition: 'color 0.28s ease' }} />
                     }
                     {text}
                   </div>
@@ -283,7 +290,7 @@ export default function AuroraPricing() {
                 href={WA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="aurora-cta-btn"
+                className={plan.featured ? 'ap-cta-featured' : 'ap-cta aurora-cta-btn'}
                 style={{
                   display: 'block', textAlign: 'center',
                   fontFamily: 'var(--f-display)',
@@ -294,6 +301,7 @@ export default function AuroraPricing() {
                   background: plan.featured ? '#AB0E67' : 'transparent',
                   color: plan.featured ? 'white' : 'rgba(28,28,30,0.55)',
                   border: `1px solid ${plan.featured ? '#AB0E67' : 'rgba(28,28,30,0.2)'}`,
+                  transition: 'background 0.28s ease, color 0.28s ease, border-color 0.28s ease',
                 }}
               >
                 {plan.cta}
