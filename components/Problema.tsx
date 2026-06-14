@@ -14,7 +14,7 @@ export default function Problema() {
         </div>
         <div className="problema-body reveal r-d2">
           <div className="problema-quote">
-            "Mientras la agencia te manda el contrato,<br />tu página ya está live."
+            &quot;Mientras la agencia te manda el contrato,<br />tu página ya está live.&quot;
           </div>
           <p className="problema-lead">
             Las agencias cobran entre <strong>$8,000 y $150,000 MXN</strong> y tardan semanas.<br />

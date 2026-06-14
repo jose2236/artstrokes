@@ -1,52 +1,76 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* ═══════════════════════════════════════════════════════════
-   ARTSTROKES · LANDING PAGE — EDITORIAL PREMIUM
-   Kinetic Brutalism × Estudio creativo boutique
-   Design System: #1c1c1e · #ffffff · #d4f000 · #AB0E67
-═══════════════════════════════════════════════════════════ */
+@theme {
+  --font-display: var(--font-space-grotesk, 'Space Grotesk'), sans-serif;
+  --font-body: var(--font-dm-sans, 'DM Sans'), sans-serif;
+  --font-mono: var(--font-dm-mono, 'DM Mono'), monospace;
 
-:root {
-  --bg:          #ffffff;
-  --fg:          #1c1c1e;
-  --acid:        #d4f000;
-  --acid-dark:   #AB0E67;
-  --muted:       #71717a;
-  --border:      #e4e4e7;
-  --surf:        #fafafa;
-  --surf2:       #f4f4f5;
-  --f-display:   var(--font-space-grotesk, 'Space Grotesk'), sans-serif;
-  --f-body:      var(--font-dm-sans, 'DM Sans'), sans-serif;
-  --f-mono:      var(--font-dm-mono, 'DM Mono'), monospace;
-  --ease:        cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out:    cubic-bezier(0.0, 0, 0.2, 1);
-  --sp-xs:  24px;
-  --sp-sm:  40px;
-  --sp-md:  80px;
-  --sp-lg:  120px;
-  --sp-xl:  160px;
+ 
+  --color-bg: #ffffff;
+  --color-fg: #1c1c1e;
+  --color-acid: #d4f000;
+  --color-acid-dark: #AB0E67;
+  --color-muted: #71717a;
+  --color-border: #e4e4e7;
+  --color-surf: #fafafa;
+  --color-surf2: #f4f4f5;
+
+  --animate-marquee: marquee 24s linear infinite;
+  --animate-slogan: marquee 28s linear infinite;
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
+:root {
+  --bg: var(--color-bg);
+  --fg: var(--color-fg);
+  --acid: var(--color-acid);
+  --acid-dark: var(--color-acid-dark);
+  --muted: var(--color-muted);
+  --border: var(--color-border);
+  --surf: var(--color-surf);
+  --surf2: var(--color-surf2);
+  
+  --f-display: var(--font-display);
+  --f-body: var(--font-body);
+  --f-mono: var(--font-mono);
+  --ease: var(--ease-editorial);
+  --ease-out: cubic-bezier(0.0, 0, 0.2, 1);
 
-body {
-  background: var(--bg);
-  color: var(--fg);
-  font-family: var(--f-body);
-  font-size: 16px;
-  line-height: 1.6;
-  font-weight: 300;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+  --sp-xs: 24px;
+  --sp-sm: 40px;
+  --sp-md: 80px;
+  --sp-lg: 120px;
+  --sp-xl: 160px;
+}
+
+@layer base {
+  html { 
+    scroll-behavior: smooth; 
+    overflow-x: hidden; 
+  }
+  
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 300;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 ::-webkit-scrollbar { width: 2px; }
 ::-webkit-scrollbar-thumb { background: var(--fg); }
 
-svg.icon { fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+svg.icon { 
+  fill: none; 
+  stroke: currentColor; 
+  stroke-width: 1.75; 
+  stroke-linecap: round; 
+  stroke-linejoin: round; 
+}
 
 /* ══════════════════════════════════════
    NAV

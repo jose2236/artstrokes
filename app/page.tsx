@@ -10,6 +10,7 @@ import Galeria from '@/components/Galeria'
 import Proceso from '@/components/Proceso'
 import Precios from '@/components/Precios'
 import Garantias from '@/components/Garantias'
+import FAQ from '@/components/FAQ'
 import CtaFinal from '@/components/CtaFinal'
 import Footer from '@/components/Footer'
 
@@ -28,6 +29,7 @@ export default function Home() {
       <Proceso />
       <Precios />
       <Garantias />
+      <FAQ />
       <CtaFinal />
       <Footer />
     </>
