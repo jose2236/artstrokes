@@ -67,7 +67,7 @@ export default function Proceso() {
                 <svg className="icon" width="18" height="18" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
               </div>
               <div className="pe-title pe-title-acid">Live</div>
-              <div className="pe-desc">"Aquí está tu página." Un link. Tus clientes ya te encuentran en Google.</div>
+              <div className="pe-desc">&quot;Aquí está tu página.&quot; Un link. Tus clientes ya te encuentran en Google.</div>
               <div className="pe-who">Tu negocio · 48 hrs</div>
             </div>
           </div>
